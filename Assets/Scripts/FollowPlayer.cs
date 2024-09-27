@@ -24,7 +24,7 @@ public class FollowPlayer : MonoBehaviour
         localRot.x += Input.GetAxis("Mouse X") * MouseSpeed;
         localRot.y -= Input.GetAxis("Mouse Y") * MouseSpeed;
 
-        localRot.y = Mathf.Clamp(localRot.y, 0f, 90f);
+        localRot.y = Mathf.Clamp(localRot.y, -90f, 90f);
 
         Quaternion QT = Quaternion.Euler(localRot.y, localRot.x, 0f);
         transform.rotation = Quaternion.Lerp(transform.rotation, QT, Time.deltaTime * orbitDamping);
