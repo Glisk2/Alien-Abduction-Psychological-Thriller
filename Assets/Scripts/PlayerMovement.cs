@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float StandHeight = 2f;
     [SerializeField] float LeanAngle = 15f;
     [SerializeField] float LeanSpeed = 5f;
-    [SerializeField] float LeanOffset = .5f;
+    [SerializeField] float LeanOffset = 0.5f;
 
     [SerializeField] Transform cam;
 
@@ -112,15 +112,18 @@ public class PlayerMovement : MonoBehaviour
         if (currentLeanAngle > 0) //Leaning left
         {
             cam.localPosition = Vector3.Lerp(cam.localPosition, defaultCameraPosition - leanOffsetVector, Time.deltaTime * LeanSpeed);
+            Debug.Log($"Leaning Left: {cam.localPosition}");
         }
         else if (currentLeanAngle < 0) //Leaning right
         {
             cam.localPosition = Vector3.Lerp(cam.localPosition, defaultCameraPosition + leanOffsetVector, Time.deltaTime * LeanSpeed);
+            Debug.Log($"Leaning Right: {cam.localPosition}");
         }
         else
         {
             //Reset the camera to its default position if no leaning
             cam.localPosition = Vector3.Lerp(cam.localPosition, defaultCameraPosition, Time.deltaTime * LeanSpeed);
+            Debug.Log($"Resetting Position: {cam.localPosition}");
         }
 
         //Apply the lean by rotating the camera around  its Z-axis
