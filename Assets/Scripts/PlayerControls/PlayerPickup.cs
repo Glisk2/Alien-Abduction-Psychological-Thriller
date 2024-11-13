@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using OpenCover.Framework.Model;
 
 
 public class PlayerPickup : MonoBehaviour
@@ -22,11 +23,13 @@ public class PlayerPickup : MonoBehaviour
         {
             interactText.enabled = false;
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+    
         if(Input.GetKeyDown(KeyCode.E))
         {
             if(heldObject == null)
