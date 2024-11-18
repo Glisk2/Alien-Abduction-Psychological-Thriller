@@ -16,8 +16,6 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         closedRotation = transform.localRotation;
         openRotation = closedRotation * Quaternion.Euler(0, openAngle, 0); // Rotate around Y 
-        Debug.Log("Closed Rotation: " + closedRotation);
-        Debug.Log("Open Rotation: " + openRotation);
     }
 
     public void Interact()
@@ -37,6 +35,5 @@ public class DoorController : MonoBehaviour, IInteractable
             yield return null;
         }
         transform.localRotation = targetRotation; // Snap to target rotation
-        Debug.Log("Final Rotation Reached: " + transform.localRotation.eulerAngles);
     }
 }
